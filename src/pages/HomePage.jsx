@@ -4,6 +4,7 @@ import FeatureCard from '../components/common/FeatureCard';
 import TestimonialCard from '../components/common/TestimonialCard';
 import CtaSection from '../components/sections/CtaSection';
 import './HomePage.css';
+import logo from '../imagenes/logoCrono.png';
 
 // Componente para la sección de certificación
 const CertificationSection = () => (
@@ -22,9 +23,9 @@ const CertificationSection = () => (
         <div className="card-header">
           <div className="certification-icon">
             <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b8/ISO_9001-2015_Certified_Logo.png" 
+              src={logo} 
               alt="Certificado CRONO BOT" 
-              className="certification-image" 
+              className="certification-image crono-logo" 
             />
           </div>
         </div>
@@ -33,6 +34,7 @@ const CertificationSection = () => (
           <p>Certificación oficial que acredita tu dominio en QA Testing y Automatización, respaldada por nuestra empresa.</p>
         </div>
       </div>
+      {/*
       <div className="certification-card">
         <div className="card-header">
           <div className="certification-icon">
@@ -48,6 +50,7 @@ const CertificationSection = () => (
           <p>Avalado por Google Developer Groups Ica, conectándote con la comunidad tecnológica más importante de la región.</p>
         </div>
       </div>
+      */}
     </div>
     <div className="certification-footer">
       <p className="footer-text">Nuestros programas están diseñados bajo los estándares de Google, garantizando que desarrolles habilidades altamente demandadas en el mercado laboral actual.</p>

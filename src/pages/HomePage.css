@@ -1,4 +1,4 @@
-/* HomePage.css - Carrusel Corregido con Auto Slide */
+/* HomePage.css - Carrusel Corregido con Auto Slide y Logo Flexible */
 
 :root {
   --background-dark: #121212;
@@ -23,6 +23,11 @@
   margin: 2.5rem 0;
   color: var(--text-dark);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.highlight-text {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(51, 255, 153, 0.5);
 }
 
 .section-subtitle {
@@ -145,13 +150,214 @@
   width: 100%;
 }
 
-/* --- Media Queries para el Carrusel --- */
-@media (max-width: 1200px) {
-  .carousel-item {
-    width: 50% !important; /* 2 cards en tablet */
+/* --- Sección de Certificación con Logo Flexible --- */
+.certification-section {
+  background-color: var(--background-medium-dark);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.certification-header {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.certification-card {
+  background-color: var(--card-background);
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-image-slice: 1;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.certification-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.certification-card:hover::before {
+  transform: scaleX(1);
+}
+
+.certification-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(51, 255, 153, 0.3),
+    0 0 40px rgba(51, 255, 153, 0.2);
+}
+
+.card-header {
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.certification-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px; /* Altura flexible base */
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+/* Logo CRONO BOT - Enfoque flexible */
+.certification-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Clase específica para el logo de Crono Bot */
+.crono-logo {
+  max-width: 180px; /* Tamaño máximo flexible */
+  max-height: 140px; /* Tamaño máximo flexible */
+  min-width: 120px; /* Tamaño mínimo */
+  min-height: 80px; /* Tamaño mínimo */
+}
+
+.certification-card:hover .certification-image {
+  transform: scale(1.15);
+  filter: brightness(1) contrast(1.2) drop-shadow(0 0 10px rgba(51, 255, 153, 0.3));
+}
+
+.certification-card:hover .crono-logo {
+  transform: scale(1.2); /* Un poco más de escala para el logo específico */
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.card-body h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  text-shadow: 0 2px 8px rgba(51, 255, 153, 0.3);
+  line-height: 1.3;
+}
+
+.card-body p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.certification-footer {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+}
+
+.footer-text {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-style: italic;
+  opacity: 0.9;
+  padding: 1.5rem;
+  background: rgba(51, 255, 153, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+  padding: 4rem 1rem;
+  background-color: var(--background-dark);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Media Queries Responsivas --- */
+
+/* Desktop Grande */
+@media (min-width: 1400px) {
+  .certification-icon {
+    height: 180px;
+  }
+  
+  .crono-logo {
+    max-width: 200px;
+    max-height: 160px;
+  }
+  
+  .certification-card {
+    min-height: 450px;
+    padding: 3rem 2.5rem;
   }
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .certification-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .certification-icon {
+    height: 140px;
+  }
+  
+  .crono-logo {
+    max-width: 160px;
+    max-height: 120px;
+  }
+  
+  .certification-card {
+    min-height: 400px;
+    padding: 2rem 1.5rem;
+  }
+  
+  .carousel-item {
+    width: 50% !important;
+  }
+}
+
+/* Tablet Pequeña */
 @media (max-width: 768px) {
   .carousel-button {
     width: 35px;
@@ -164,10 +370,38 @@
   }
   
   .carousel-item {
-    width: 100% !important; /* 1 card en mobile */
+    width: 100% !important;
+  }
+  
+  .certification-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .certification-icon {
+    height: 130px;
+  }
+  
+  .crono-logo {
+    max-width: 140px;
+    max-height: 110px;
+  }
+  
+  .certification-card {
+    min-height: 380px;
+    padding: 1.8rem 1.2rem;
+  }
+  
+  .card-body h3 {
+    font-size: 1.4rem;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .carousel-button {
     display: none;
@@ -184,105 +418,63 @@
   .card-image {
     height: 150px;
   }
+  
+  .certification-section {
+    padding: 3rem 1rem;
+  }
+  
+  .certification-icon {
+    height: 120px;
+  }
+  
+  .crono-logo {
+    max-width: 120px;
+    max-height: 90px;
+    min-width: 100px;
+    min-height: 70px;
+  }
+  
+  .certification-card {
+    min-height: 350px;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .card-body h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card-body p {
+    font-size: 0.95rem;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }
 
-/* Resto del CSS (certification, testimonials, etc.) */
-.certification-section {
-  background-color: var(--background-medium-dark);
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.certification-header {
-  max-width: 900px;
-  margin: 0 auto 3rem;
-}
-
-.certification-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.certification-card {
-  background-color: var(--card-background);
-  border: 2px solid transparent;
-  border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  border-image-slice: 1;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-}
-
-.certification-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(51, 255, 153, 0.25), 0 0 30px var(--primary-color);
-}
-
-.card-header {
-  margin-bottom: 1.5rem;
-}
-
-.certification-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.certification-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  transition: transform 0.4s ease;
-}
-
-.certification-card:hover .certification-image {
-  transform: scale(1.1);
-}
-
-.card-body h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  color: var(--primary-color);
-}
-
-.card-body p {
-  font-size: 1rem;
-  color: var(--text-light);
-  line-height: 1.5;
-}
-
-.certification-footer {
-  max-width: 800px;
-  margin: 3rem auto 0;
-  padding: 0 1rem;
-}
-
-.footer-text {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  line-height: 1.6;
-  font-style: italic;
-}
-
-.testimonials-section {
-  padding: 4rem 1rem;
-  background-color: var(--background-dark);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Mobile Pequeño */
+@media (max-width: 360px) {
+  .certification-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .certification-card {
+    min-height: 320px;
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .certification-icon {
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .crono-logo {
+    max-width: 100px;
+    max-height: 80px;
+  }
 }
 
 /* Animaciones */
@@ -307,5 +499,33 @@
   }
   100% {
     box-shadow: 0 0 20px var(--card-shadow);
+  }
+}
+
+/* Efecto de brillo para el logo en hover */
+.crono-logo {
+  position: relative;
+}
+
+.certification-card:hover .crono-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(51, 255, 153, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: logo-glow 2s ease-in-out infinite;
+}
+
+@keyframes logo-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
   }
 }
