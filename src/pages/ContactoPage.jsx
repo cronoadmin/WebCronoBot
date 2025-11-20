@@ -21,7 +21,7 @@ const ContactoPage = () => {
 
   // Configuración de EmailJS - ACTUALIZADA CON DOS TEMPLATES
   const EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_thbe2y8',
+    SERVICE_ID: 'service_z3or2ix',
     TEMPLATE_RECEPCION: 'template_fcco3ro', // Template para recepción de solicitud (para ti)
     TEMPLATE_CONFIRMACION: 'template_tebohgm', // Template de confirmación (para el cliente) - REEMPLAZA CON EL ID REAL
     USER_ID: '-ZCtHth4uHc5d6WGo'
