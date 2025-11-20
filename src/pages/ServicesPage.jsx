@@ -156,7 +156,7 @@ const HeroSection = React.memo(({ isVisible }) => {
 
   // Función para abrir WhatsApp
   const openWhatsApp = () => {
-    const phoneNumber = '1234567890'; // Reemplaza con tu número real
+    const phoneNumber = '+51901922306'; // Reemplaza con tu número real
     const defaultMessage = 'Hola, me interesa conocer el plan de estudios completo de los cursos de QA. ¿Podrían enviarme más información?';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
     
@@ -330,7 +330,7 @@ const CoursesCarousel = React.memo(() => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h2 className="section-title">Nuestros Cursos</h2>
+      <h2 className="section-title">Nuestros Cursos Disponibles</h2>
       <div className={`carousel-wrapper ${!showNavigation ? 'no-navigation' : ''}`}>
         {/* Botones de navegación - SOLO SI HAY MÁS DE 1 SLIDE */}
         {showNavigation && (

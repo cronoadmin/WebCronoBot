@@ -30,25 +30,31 @@ const AboutPage = () => {
     }
   ];
 
-  // Datos del equipo
+  // Datos del equipo ACTUALIZADOS con especialidades
   const teamData = [
     {
+      name: "Orlando Valencia",
+      role: "Co-Founder",
+      image: "https://media.licdn.com/dms/image/v2/D4E03AQFDqFd7i3t9xA/profile-displayphoto-shrink_800_800/B4EZUfaFjOH0Ak-/0/1739988687540?e=1764806400&v=beta&t=jEk5uVfU1P5bB7W5T-vwcJMVtpjEDQAs1Ms9f3g3eIY",
+      bio: "QA Engineer especializado en aseguramiento de calidad de software con expertise en automatización de pruebas, integración y despliegue continuo. Apasionado por implementar estrategias de testing que optimizan los procesos de desarrollo.",
+      linkedin: "https://www.linkedin.com/in/orlando-valencia-giraldo-141336202/",
+      specialties: ["QA Automation", "CI/CD", "Testing Estratégico", "DevOps"]
+    },
+    {
       name: "Carlos Aparcana",
-      role: "CEO & Fundador",
+      role: "Socio Fundador & Embajador de la Marca",
       image: "https://media.licdn.com/dms/image/v2/D4E03AQHcEKDIduaP2g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1686071562007?e=1764806400&v=beta&t=VQ-38qyFUKOurshMfLta4rByfh_f78MXfHUMLYXCucE",
-      bio: "Más de 8 años de experiencia en QA Automation. Especialista en frameworks de testing y mentoría técnica."
+      bio: "QA Engineer con mucha experiencia liderando equipos de testing y automatización. Especialista en frameworks avanzados y mentoría técnica, destacado por capacitar y formar nuevos talentos en el área de calidad de software.",
+      linkedin: "https://www.linkedin.com/in/carlos-aparcana-siguas-0a57a7243/",
+      specialties: ["Liderazgo Técnico", "Mentoría QA", "Frameworks", "Estrategia de Testing"]
     },
     {
       name: "Ruben Quispe",
-      role: "Directora Académica",
+      role: "Socio Fundador & Embajador de la Marca",
       image: "https://media.licdn.com/dms/image/v2/C4E03AQEk8W4zJMm62g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1639937048273?e=1764806400&v=beta&t=P5_o9vgSWkdigGPenwXg2v_GvdwztwdCcYkH_-RLDwU",
-      bio: "Líder en desarrollo de contenido educativo práctico para testing manual y automatizado."
-    },
-    {
-      name: "Orlando Valencia",
-      role: "Instructor Senior",
-      image: "https://media.licdn.com/dms/image/v2/D4E03AQFDqFd7i3t9xA/profile-displayphoto-shrink_800_800/B4EZUfaFjOH0Ak-/0/1739988687540?e=1764806400&v=beta&t=jEk5uVfU1P5bB7W5T-vwcJMVtpjEDQAs1Ms9f3g3eIY",
-      bio: "Automation Engineer con expertise en Playwright, Appium y estrategias de testing ágil."
+      bio: "Especialista en Inteligencia Artificial y arquitecto de soluciones tecnológicas. Combinando su experiencia como docente en IA con el desarrollo de arquitecturas escalables para proyectos de alta complejidad técnica.",
+      linkedin: "https://www.linkedin.com/in/ruben-quispe-l/",
+      specialties: ["Inteligencia Artificial", "Arquitectura de Soluciones", "Machine Learning", "Cloud Computing"]
     }
   ];
 
@@ -189,7 +195,7 @@ const AboutPage = () => {
               <div className="hero-stat-label">Práctico</div>
             </div>
             <div className="hero-stat">
-              <div className="hero-stat-number">2x</div>
+              <div className="hero-stat-number">1x</div>
               <div className="hero-stat-label">Certificación</div>
             </div>
             <div className="hero-stat">
@@ -221,7 +227,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section ACTUALIZADA */}
       <section className="team-section">
         <h2>Nuestro Equipo de Expertos</h2>
         
@@ -239,10 +245,18 @@ const AboutPage = () => {
                 <h3>{member.name}</h3>
                 <span className="role">{member.role}</span>
                 <p>{member.bio}</p>
+                
+                {/* Especialidades del miembro */}
+                <div className="member-specialties">
+                  {member.specialties?.map((specialty, i) => (
+                    <span key={i} className="specialty-tag">{specialty}</span>
+                  ))}
+                </div>
+                
                 <div className="social-links1">
-                  <a href="#"><i className="fab fa-linkedin"></i></a>
-                  <a href="#"><i className="fab fa-twitter"></i></a>
-                  <a href="#"><i className="fab fa-github"></i></a>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-linkedin"></i>
+                  </a>
                 </div>
               </div>
             </div>

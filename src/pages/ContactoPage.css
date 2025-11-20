@@ -394,7 +394,8 @@ body {
   border-radius: var(--radius);
   padding: 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
   transition: var(--transition);
 }

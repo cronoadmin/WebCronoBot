@@ -19,11 +19,12 @@ const ContactoPage = () => {
   const location = useLocation();
   const formRef = useRef();
 
-  // Configuración de EmailJS - REEMPLAZA CON TUS DATOS REALES
+  // Configuración de EmailJS - ACTUALIZADA CON DOS TEMPLATES
   const EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_thbe2y8', // Crea uno en https://www.emailjs.com/
-    TEMPLATE_ID: 'template_fcco3ro', // Crea tu template
-    USER_ID: '-ZCtHth4uHc5d6WGo' // Tu Public Key
+    SERVICE_ID: 'service_thbe2y8',
+    TEMPLATE_RECEPCION: 'template_fcco3ro', // Template para recepción de solicitud (para ti)
+    TEMPLATE_CONFIRMACION: 'template_tebohgm', // Template de confirmación (para el cliente) - REEMPLAZA CON EL ID REAL
+    USER_ID: '-ZCtHth4uHc5d6WGo'
   };
 
   useEffect(() => {
@@ -51,7 +52,6 @@ const ContactoPage = () => {
       }));
     }
     
-    // Limpiar errores generales cuando el usuario empiece a escribir
     if (submitError) {
       setSubmitError('');
     }
@@ -101,15 +101,58 @@ const ContactoPage = () => {
     setSubmitError('');
 
     try {
-      // Enviar formulario con EmailJS
-      const result = await emailjs.sendForm(
+      // Obtener fecha actual para las variables
+      const now = new Date();
+      const fecha = now.toLocaleDateString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      const year = now.getFullYear().toString();
+
+      // Preparar datos para ambos templates
+      const templateParams = {
+        nombre: formData.nombre,
+        email: formData.email,
+        telefono: formData.telefono || 'No proporcionado',
+        asunto: formData.asunto,
+        mensaje: formData.mensaje,
+        fecha: fecha,
+        year: year,
+        // Variables específicas para el template de confirmación
+        to_email: formData.email, // Email del cliente para la confirmación
+        to_name: formData.nombre // Nombre del cliente para la confirmación
+      };
+
+      console.log('Enviando emails con datos:', templateParams);
+
+      // ENVIAR EMAIL DE RECEPCIÓN (para ti/administración)
+      await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
-        formRef.current,
+        EMAILJS_CONFIG.TEMPLATE_RECEPCION,
+        templateParams,
         EMAILJS_CONFIG.USER_ID
       );
 
-      console.log('Email enviado:', result.text);
+      console.log('✅ Email de recepción enviado');
+
+      // ENVIAR EMAIL DE CONFIRMACIÓN AL CLIENTE
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_CONFIRMACION,
+        {
+          asunto: `Confirmación de solicitud - ${formData.asunto}`,
+          nombre: formData.nombre,
+          fecha: fecha,
+          year: year,
+          curso: formData.asunto,
+          to_email: formData.email,
+          to_name: formData.nombre
+        },
+        EMAILJS_CONFIG.USER_ID
+      );
+
+      console.log('✅ Email de confirmación enviado al cliente');
       
       // Éxito
       setSubmitSuccess(true);
@@ -127,61 +170,26 @@ const ContactoPage = () => {
       }, 5000);
 
     } catch (error) {
-      console.error('Error al enviar email:', error);
-      setSubmitError('Error al enviar el formulario. Por favor, intenta nuevamente.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // Función alternativa usando fetch (si prefieres no usar EmailJS)
-  const handleSubmitAlternative = async (e) => {
-    e.preventDefault();
-    
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitError('');
-
-    try {
-      // Aquí puedes conectar con tu backend o servicio de forms
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitSuccess(true);
-        setFormData({
-          nombre: '',
-          email: '',
-          telefono: '',
-          asunto: '',
-          mensaje: ''
-        });
-      } else {
-        throw new Error('Error en el servidor');
+      console.error('❌ Error al enviar emails:', error);
+      
+      // Proporcionar mensaje de error más específico
+      if (error.text) {
+        console.error('Detalles del error:', error.text);
       }
-    } catch (error) {
-      setSubmitError('Error al enviar el formulario. Por favor, intenta nuevamente.');
+      
+      setSubmitError('Error al enviar el formulario. Por favor, intenta nuevamente o contáctanos directamente por WhatsApp.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  // Resto del código se mantiene igual...
   const quickLinks = [
     {
       icon: '💬',
       title: 'WhatsApp',
       desc: 'Chat rápido',
-      url: 'https://wa.me/51977484496',
+      url: 'https://wa.me/+51901922306',
       color: '#25D366'
     },
     {
@@ -266,7 +274,7 @@ const ContactoPage = () => {
                 <div className="success-icon">✅</div>
                 <div className="success-text">
                   <strong>¡Enviado con éxito!</strong>
-                  <span>Te contactaremos pronto con la información del curso</span>
+                  <span>Hemos recibido tu solicitud y te hemos enviado un email de confirmación</span>
                 </div>
               </div>
             )}
