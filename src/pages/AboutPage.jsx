@@ -38,7 +38,7 @@ const AboutPage = () => {
       image: "https://media.licdn.com/dms/image/v2/D4E03AQFDqFd7i3t9xA/profile-displayphoto-shrink_800_800/B4EZUfaFjOH0Ak-/0/1739988687540?e=1764806400&v=beta&t=jEk5uVfU1P5bB7W5T-vwcJMVtpjEDQAs1Ms9f3g3eIY",
       bio: "QA Engineer especializado en aseguramiento de calidad de software con expertise en automatización de pruebas, integración y despliegue continuo. Apasionado por implementar estrategias de testing que optimizan los procesos de desarrollo.",
       linkedin: "https://www.linkedin.com/in/orlando-valencia-giraldo-141336202/",
-      specialties: ["QA Automation", "CI/CD", "Testing Estratégico", "DevOps"]
+      specialties: ["QA Engineer", "CI/CD", "Testing Estratégico", "DevOps", "Forn-End"]
     },
     {
       name: "Carlos Aparcana",
@@ -63,7 +63,7 @@ const AboutPage = () => {
     {
       icon: "🔥",
       title: "Skills que Importan",
-      description: "Olvídate de cursos aburridos. Aquí construyes portfolio con tech stack que realmente usan las empresas en 2024."
+      description: "Olvídate de cursos aburridos. Aquí construyes portfolio con tech stack que realmente usan las empresas en 2026."
     },
     {
       icon: "⚡",
@@ -96,7 +96,7 @@ const AboutPage = () => {
   const faqData = [
     {
       question: "¿Qué certificaciones obtengo al completar los cursos?",
-      answer: "Recibes doble certificación: Certificado oficial de CRONO BOT que valida tus habilidades técnicas y Certificado de GDG Ica respaldado por la comunidad Google Developers, ampliamente reconocido en la industria."
+      answer: "Recibes doble certificación: Certificado oficial de CRONO BOT que valida tus habilidades técnicas."
     },
     {
       question: "¿Los cursos son 100% prácticos?",
@@ -105,10 +105,6 @@ const AboutPage = () => {
     {
       question: "¿Necesito experiencia previa en programación?",
       answer: "No es necesaria. Tenemos rutas de aprendizaje diseñadas para principiantes que incluyen fundamentos de programación, hasta cursos avanzados para quienes ya tienen experiencia en testing."
-    },
-    {
-      question: "¿Cómo me ayuda la certificación de GDG Ica?",
-      answer: "La certificación GDG Ica te conecta con una red global de desarrolladores y empresas, aumenta tu credibilidad profesional y es un diferenciador clave en procesos de reclutamiento tech."
     }
   ];
 
