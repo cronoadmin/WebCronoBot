@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<HomePage headerHeight={headerHeight} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactoPage />} />
+          <Route path="" element={<ContactoPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
