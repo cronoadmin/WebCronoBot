@@ -10,7 +10,7 @@ import Header3 from '../../imagenes/header-3.jpeg';
 const sliderContent = [
   {
     image: Header1,
-    title: 'Conviértete en Experto en QA Testing',
+    title: 'Conviértete en Expreto en QA Testing',
     subtitle: 'Domina las metodologías ágiles y testing automatizado para garantizar la calidad perfecta de software en cualquier entorno.',
     buttonText: 'Más Información'
   },
