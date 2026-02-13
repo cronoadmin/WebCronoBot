@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Número de WhatsApp y mensaje predefinido
-  const phoneNumber = '+51901922306'; // Reemplaza con tu número real
+  const phoneNumber = '+51123456789'; // Reemplaza con tu número real
   const defaultMessage = 'Hola, me interesa conocer más sobre sus cursos de tecnología. ¿Podrían brindarme más información?';
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;

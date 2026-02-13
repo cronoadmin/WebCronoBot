@@ -201,7 +201,7 @@ const FeatureCard = ({ title, description, price, isFeatured, imageUrl, duration
                 {/* Footer compacto */}
                 <div className="card-footer">
                     <div className="action-buttonss">
-                        <button className="buy-button primary-btn" onClick={handleBuyNow}>
+                        <button className="buy-button primary-btn" onClick=>
                             <span className="button-text">Comprar ahora</span>
                         </button>
                         
