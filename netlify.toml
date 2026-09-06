@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/verificador"
+  to = "https://cronobot-certify.netlify.app/verificador"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/verificador/*"
+  to = "https://cronobot-certify.netlify.app/verificador/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
