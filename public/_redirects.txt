@@ -1,5 +1,5 @@
 # ============================================
-# VERIFICADOR (Next.js)
+# PROXY PARA EL SITIO SECUNDARIO (CORREGIDO)
 # ============================================
 
 /verificador https://cronobot-certify.netlify.app/verificador 200
@@ -7,22 +7,18 @@
 /loginC https://cronobot-certify.netlify.app/login 200
 /dashboard https://cronobot-certify.netlify.app/dashboard 200
 
-# Recursos estáticos del verificador
-/_next/* https://cronobot-certify.netlify.app/_next/:splat 200
+# Reescritura para /login
+/loginC https://cronobot-certify.netlify.app/login 200!
+
+# Reescritura para /dashboard
+/dashboard https://cronobot-certify.netlify.app/dashboard 200!
+
+# Recursos estáticos del sitio secundario
+/_next/* https://cronobot-certify.netlify.app/_next/:splat 200!
 
 # ============================================
-# PORTAFOLIO (Next.js)
+# SITIO PRINCIPAL - SPA (SIEMPRE AL FINAL)
 # ============================================
 
-/portafolio https://portafoliocrono.netlify.app 200
-/portafolio/* https://portafoliocrono.netlify.app/:splat 200
-
-# Recursos estáticos del portafolio
-/portafolio/_next/* https://portafoliocrono.netlify.app/_next/:splat 200
-/_next/* https://portafoliocrono.netlify.app/_next/:splat 200
-
-# ============================================
-# SITIO PRINCIPAL
-# ============================================
-
+# Cualquier otra ruta va al index.html del sitio principal
 /* /index.html 200
