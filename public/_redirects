@@ -6,8 +6,8 @@
 /verificador/* https://cronobot-certify.netlify.app/verificador/:splat 200
 /loginC https://cronobot-certify.netlify.app/login 200
 /dashboard https://cronobot-certify.netlify.app/dashboard 200
-/dashboard/certificados https://crono-bot.com/dashboard/certificados 200
-/dashboard/certificados/* https://crono-bot.com/dashboard/certificados/:splat 200
+/dashboard/certificados https://cronobot-certify.netlify.app/dashboard/certificados 200
+/dashboard/certificados/* https://cronobot-certify.netlify.app/certificados/:splat 200
 
 # Reescritura para /login
 /loginC https://cronobot-certify.netlify.app/login 200!
