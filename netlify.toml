@@ -60,12 +60,3 @@
   to = "https://cronobot-certify.netlify.app/dashboard/:splat"
   status = 200
   force = true
-
-# ============================================
-# SITIO PRINCIPAL (SIEMPRE AL FINAL)
-# ============================================
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
