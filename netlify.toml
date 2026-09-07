@@ -62,17 +62,10 @@
   force = true
 
 # ============================================
-# RECURSOS ESTÁTICOS DEL SITIO SECUNDARIO
+# SITIO PRINCIPAL (SIEMPRE AL FINAL)
 # ============================================
 
 [[redirects]]
-  from = "/verificador/_next/*"
-  to = "https://cronobot-certify.netlify.app/_next/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200
-  force = true
-
-[[redirects]]
-  from = "/dashboard/_next/*"
-  to = "https://cronobot-certify.netlify.app/_next/:splat"
-  status = 200
-  force = true
