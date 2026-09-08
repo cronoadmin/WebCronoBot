@@ -105,7 +105,7 @@ export function CertificateSection() {
                 </div>
               </div>
               
-              <Link href="https://crono-bot.com/verificador" target='blank_'>
+              <Link href="https://certify.crono-bot.com/verificador" target='blank_'>
                 <Button variant="primary" className="whitespace-nowrap" style={{ background: '#00c950', color: '#000000' }}>
                   Verificar certificado
                   <ArrowRight size={16} className="ml-2" />
