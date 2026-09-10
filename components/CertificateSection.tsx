@@ -118,7 +118,7 @@ export function CertificateSection() {
         {/* Estadísticas */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 text-center">
           <div>
-            <div className="text-2xl font-bold" style={{ color: '#00c950' }}>500+</div>
+            <div className="text-2xl font-bold" style={{ color: '#00c950' }}>10+</div>
             <p className="text-xs" style={{ color: 'var(--foreground)' }}>Certificados emitidos</p>
           </div>
           <div>
@@ -130,7 +130,7 @@ export function CertificateSection() {
             <p className="text-xs" style={{ color: 'var(--foreground)' }}>Disponibilidad</p>
           </div>
           <div>
-            <div className="text-2xl font-bold" style={{ color: '#00c950' }}>+10</div>
+            <div className="text-2xl font-bold" style={{ color: '#00c950' }}>2</div>
             <p className="text-xs" style={{ color: 'var(--foreground)' }}>Cursos especializados</p>
           </div>
         </div>

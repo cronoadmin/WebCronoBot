@@ -10,7 +10,7 @@ const stats = [
   { value: '3', label: 'Proyectos', icon: <Briefcase size={20} /> },
   { value: '3', label: 'Clientes', icon: <Users size={20} /> },
   { value: '10+', label: 'Estudiantes', icon: <GraduationCap size={20} /> },
-  { value: '10+', label: 'Cursos', icon: <BookOpen size={20} /> }
+  { value: '2', label: 'Cursos', icon: <BookOpen size={20} /> }
 ]
 
 const valores = [

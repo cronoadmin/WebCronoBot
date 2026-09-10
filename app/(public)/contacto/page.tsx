@@ -364,7 +364,7 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white font-medium">cronoadmin@crono-bot.com</p>
+                    <p className="text-white font-medium">info@crono-bot.com</p>
                     <p className="text-gray-500 text-sm">Respuesta en 24h</p>
                   </div>
                 </div>
@@ -438,9 +438,9 @@ export default function ContactoPage() {
       <div className="h-48 bg-gray-900 border-t border-gray-800 flex items-center justify-center">
         <div className="text-center">
           <MapPin className="w-8 h-8 text-green-500 mx-auto mb-2" />
-          <p className="text-white">Lima, Perú - San Isidro</p>
+          <p className="text-white">Ica, Perú - Pisco</p>
           <a 
-            href="https://maps.google.com/?q=Lima,Peru" 
+            href="https://maps.google.com/?q=Ica,Peru" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-green-500 text-sm hover:underline"
